@@ -31,21 +31,15 @@ export function FinalCTASection() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300"
-            >
-              Start Your Journey Now
-              <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border-white/30 text-white hover:bg-white/10 px-12 py-6 text-xl backdrop-blur-sm"
-            >
-              Learn More
-            </Button>
+            <a href="#packages">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300"
+              >
+                Start Your Journey Now
+                <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+            </a>
           </div>
           
           {/* Trust indicators */}

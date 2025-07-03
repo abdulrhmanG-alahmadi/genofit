@@ -27,7 +27,7 @@ export function PackagesSection() {
       icon: Dumbbell,
       description: 'Comprehensive genetic analysis with personalized training plans based on your DNA',
       price: 'Starting at',
-      amount: '499 SAR',
+      amount: '2199 SAR',
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-50 to-cyan-50',
       features: [
@@ -46,7 +46,7 @@ export function PackagesSection() {
       icon: Apple,
       description: 'Personalized dietary plans tailored to your genetics to help you reach your nutrition goals',
       price: 'Starting at',
-      amount: '399 SAR',
+      amount: '2199 SAR',
       gradient: 'from-green-500 to-emerald-500',
       bgGradient: 'from-green-50 to-emerald-50',
       features: [
@@ -65,7 +65,7 @@ export function PackagesSection() {
       icon: Crown,
       description: 'The all-inclusive package for full analysis and tailored athletic and dietary plans',
       price: 'Starting at',
-      amount: '799 SAR',
+      amount: '3299 SAR',
       gradient: 'from-purple-500 to-pink-500',
       bgGradient: 'from-purple-50 to-pink-50',
       features: [

@@ -16,12 +16,12 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <HowItWorksSection />
+        <PackagesSection />
         <AboutSection />
         <MotivationalBanner />
         <StatsSection />
-        <HowItWorksSection />
         <RevolutionSection />
-        <PackagesSection />
         <FinalCTASection />
         <TestimonialsSection />
       </main>

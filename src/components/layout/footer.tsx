@@ -1,5 +1,6 @@
-import { Dna, MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
+import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
+import Image from 'next/image'
 
 export function Footer() {
   return (
@@ -9,9 +10,13 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg">
-                <Dna className="w-6 h-6 text-white" />
-              </div>
+              <Image 
+                src="/bg.png" 
+                alt="GenoFit Logo" 
+                width={40} 
+                height={40} 
+                className="object-contain"
+              />
               <span className="text-2xl font-bold text-gradient">GenoFit</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
@@ -47,8 +52,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  About
+                <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
+                  How it works
                 </a>
               </li>
               <li>
@@ -57,8 +62,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                  How It Works
+                <a href="#about" className="text-gray-400 hover:text-white transition-colors">
+                  About
                 </a>
               </li>
               <li>
