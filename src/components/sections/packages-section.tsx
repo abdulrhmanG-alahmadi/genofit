@@ -33,12 +33,12 @@ export function PackagesSection() {
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-50 to-cyan-50',
       features: [
-        'Complete genetic analysis for fitness',
-        'Personalized training plan',
-        'Muscle fiber type analysis',
-        'Recovery time optimization',
-        'Injury prevention insights',
-        'Performance enhancement strategies'
+        t('packages.features.complete-genetic-analysis'),
+        t('packages.features.personalized-training'),
+        t('packages.features.muscle-fiber-analysis'),
+        t('packages.features.recovery-optimization'),
+        t('packages.features.injury-prevention'),
+        t('packages.features.performance-enhancement')
       ],
       popular: false
     },
@@ -52,12 +52,12 @@ export function PackagesSection() {
       gradient: 'from-green-500 to-emerald-500',
       bgGradient: 'from-green-50 to-emerald-50',
       features: [
-        'Genetic nutrition analysis',
-        'Personalized meal plans',
-        'Metabolism optimization',
-        'Food sensitivity insights',
-        'Nutrient absorption analysis',
-        'Weight management strategies'
+        t('packages.features.genetic-nutrition'),
+        t('packages.features.personalized-meals'),
+        t('packages.features.metabolism-optimization'),
+        t('packages.features.food-sensitivity'),
+        t('packages.features.nutrient-absorption'),
+        t('packages.features.weight-management')
       ],
       popular: false
     },
@@ -71,14 +71,14 @@ export function PackagesSection() {
       gradient: 'from-purple-500 to-pink-500',
       bgGradient: 'from-purple-50 to-pink-50',
       features: [
-        'Complete genetic analysis',
-        'Personalized training plan',
-        'Custom nutrition strategy',
-        'Health risk assessment',
-        'Performance optimization',
-        'Monthly consultations',
-        'Priority support',
-        'Regular plan updates'
+        t('packages.features.complete-analysis'),
+        t('packages.features.personalized-training'),
+        t('packages.features.custom-nutrition'),
+        t('packages.features.health-risk'),
+        t('packages.features.performance-optimization'),
+        t('packages.features.monthly-consultations'),
+        t('packages.features.priority-support'),
+        t('packages.features.regular-updates')
       ],
       popular: true
     }
@@ -134,7 +134,7 @@ export function PackagesSection() {
               <CardContent className="p-6">
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, index) => (
-                    <li key={index} className="flex items-start space-x-3">
+                    <li key={index} className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                       <span className="text-gray-600">{feature}</span>
                     </li>

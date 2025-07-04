@@ -59,15 +59,15 @@ export function HeroSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16 pt-12 md:pt-16 border-t border-white/20 px-4">
             <div className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-white mb-2">95%</div>
-              <div className="text-sm sm:text-base text-gray-300">Performance Improvement</div>
+              <div className="text-sm sm:text-base text-gray-300">{t('hero.stats.performance-improvement')}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-white mb-2">1000+</div>
-              <div className="text-sm sm:text-base text-gray-300">Athletes Tested</div>
+              <div className="text-sm sm:text-base text-gray-300">{t('hero.stats.athletes-tested')}</div>
             </div>
             <div className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-white mb-2">24/7</div>
-              <div className="text-sm sm:text-base text-gray-300">Expert Support</div>
+              <div className="text-sm sm:text-base text-gray-300">{t('hero.stats.expert-support')}</div>
             </div>
           </div>
         </div>

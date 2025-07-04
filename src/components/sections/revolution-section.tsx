@@ -44,7 +44,7 @@ export function RevolutionSection() {
             </div>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Not Just a Step — A <span className="text-gradient">Genetic Revolution</span>
+            <span className="text-gradient">{t('revolution.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             {t('revolution.subtitle-text')}

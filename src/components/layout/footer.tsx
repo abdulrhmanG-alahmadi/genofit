@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer id="contact" className="bg-gray-900 text-white">
       <div className="container-max section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -43,38 +43,6 @@ export function Footer() {
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">{t('footer.quick-links')}</h3>
-            <ul className="space-y-2">
-              <li>
-                <a href="#home" className="text-gray-400 hover:text-white transition-colors">
-                  {t('footer.home')}
-                </a>
-              </li>
-              <li>
-                <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                  {t('nav.how-it-works')}
-                </a>
-              </li>
-              <li>
-                <a href="#packages" className="text-gray-400 hover:text-white transition-colors">
-                  {t('footer.packages')}
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  {t('nav.about')}
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                  {t('nav.contact')}
-                </a>
-              </li>
-            </ul>
           </div>
 
           {/* Legal Links */}
@@ -112,14 +80,14 @@ export function Footer() {
                 <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-gray-400">
-                    Riyadh, Saudi Arabia<br />
-                    King Fahd Road, Al Olaya District
+                    {t('footer.address-line1')}<br />
+                    {t('footer.address-line2')}
                   </p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                <a href="tel:+966123456789" className="text-gray-400 hover:text-white transition-colors">
+                <a href="tel:+966123456789" className="text-gray-400 hover:text-white transition-colors" dir="ltr">
                   +966 12 345 6789
                 </a>
               </div>

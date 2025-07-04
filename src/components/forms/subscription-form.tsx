@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { createSubscription, SubscriptionData } from '@/lib/firebase-service'
 import { CheckCircle, Loader2, AlertCircle } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 interface SubscriptionFormProps {
   isOpen: boolean
@@ -16,10 +17,39 @@ interface SubscriptionFormProps {
   packageName: string
 }
 
+const countryCodes = [
+  { code: '+966', name: 'Saudi Arabia', flag: '🇸🇦' },
+  { code: '+1', name: 'United States', flag: '🇺🇸' },
+  { code: '+44', name: 'United Kingdom', flag: '🇬🇧' },
+  { code: '+971', name: 'UAE', flag: '🇦🇪' },
+  { code: '+965', name: 'Kuwait', flag: '🇰🇼' },
+  { code: '+973', name: 'Bahrain', flag: '🇧🇭' },
+  { code: '+974', name: 'Qatar', flag: '🇶🇦' },
+  { code: '+968', name: 'Oman', flag: '🇴🇲' },
+  { code: '+962', name: 'Jordan', flag: '🇯🇴' },
+  { code: '+961', name: 'Lebanon', flag: '🇱🇧' },
+  { code: '+20', name: 'Egypt', flag: '🇪🇬' },
+  { code: '+49', name: 'Germany', flag: '🇩🇪' },
+  { code: '+33', name: 'France', flag: '🇫🇷' },
+  { code: '+39', name: 'Italy', flag: '🇮🇹' },
+  { code: '+34', name: 'Spain', flag: '🇪🇸' },
+  { code: '+86', name: 'China', flag: '🇨🇳' },
+  { code: '+81', name: 'Japan', flag: '🇯🇵' },
+  { code: '+91', name: 'India', flag: '🇮🇳' },
+  { code: '+82', name: 'South Korea', flag: '🇰🇷' },
+  { code: '+61', name: 'Australia', flag: '🇦🇺' },
+  { code: '+55', name: 'Brazil', flag: '🇧🇷' },
+  { code: '+52', name: 'Mexico', flag: '🇲🇽' },
+  { code: '+7', name: 'Russia', flag: '🇷🇺' },
+  { code: '+90', name: 'Turkey', flag: '🇹🇷' },
+]
+
 export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: SubscriptionFormProps) {
+  const { t, isRTL } = useLanguage()
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    countryCode: '+966',
     phone: '',
     gender: '',
     age: '',
@@ -30,7 +60,6 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
   const [isSuccess, setIsSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
@@ -40,30 +69,42 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
     if (error) setError(null)
   }
 
+  const handleIdChange = (value: string) => {
+    // Only allow numeric input and limit to 10 digits
+    const numericValue = value.replace(/\D/g, '').slice(0, 10)
+    handleInputChange('id', numericValue)
+  }
+
   const validateForm = (): string | null => {
-    if (!formData.fullName.trim()) return 'Full name is required'
-    if (!formData.email.trim()) return 'Email is required'
-    if (!formData.phone.trim()) return 'Phone number is required'
-    if (!formData.gender) return 'Gender is required'
-    if (!formData.age.trim()) return 'Age is required'
-    if (!formData.id.trim()) return 'ID number is required'
+    if (!formData.fullName.trim()) return t('form.validation.full-name-required')
+    if (!formData.email.trim()) return t('form.validation.email-required')
+    if (!formData.phone.trim()) return t('form.validation.phone-required')
+    if (!formData.gender) return t('form.validation.gender-required')
+    if (!formData.age.trim()) return t('form.validation.age-required')
+    if (!formData.id.trim()) return t('form.validation.id-required')
 
-    // Email validation
+    // Email validation - must have format example@domain.extension
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(formData.email)) return 'Please enter a valid email address'
+    if (!emailRegex.test(formData.email)) {
+      return t('form.validation.email-invalid')
+    }
 
-    // Phone validation (Saudi format)
-    const phoneRegex = /^(\+966|966|0)?[5-9]\d{8}$/
+    // Phone validation - basic format check
+    const phoneRegex = /^[0-9]{7,15}$/
     if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
-      return 'Please enter a valid Saudi phone number'
+      return t('form.validation.phone-invalid')
     }
 
     // Age validation
     const age = parseInt(formData.age)
-    if (isNaN(age) || age < 16 || age > 100) return 'Age must be between 16 and 100'
+    if (isNaN(age) || age < 16 || age > 100) {
+      return t('form.validation.age-invalid')
+    }
 
-    // ID validation (basic length check)
-    if (formData.id.length < 8) return 'ID number must be at least 8 characters'
+    // ID validation - exactly 10 digits
+    if (formData.id.length !== 10 || !/^\d{10}$/.test(formData.id)) {
+      return t('form.validation.id-invalid')
+    }
 
     return null
   }
@@ -84,7 +125,7 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
       const subscriptionData: SubscriptionData = {
         fullName: formData.fullName.trim(),
         email: formData.email.trim().toLowerCase(),
-        phone: formData.phone.trim(),
+        phone: `${formData.countryCode}${formData.phone.trim()}`,
         gender: formData.gender,
         age: parseInt(formData.age),
         id: formData.id.trim(),
@@ -100,6 +141,7 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
       setFormData({
         fullName: '',
         email: '',
+        countryCode: '+966',
         phone: '',
         gender: '',
         age: '',
@@ -107,7 +149,7 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
       })
     } catch (error) {
       console.error('Subscription error:', error)
-      setError(error instanceof Error ? error.message : 'An unexpected error occurred')
+      setError(error instanceof Error ? error.message : t('form.validation.unexpected-error'))
     } finally {
       setIsSubmitting(false)
     }
@@ -128,18 +170,18 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
               <CheckCircle className="w-8 h-8 text-green-600" />
             </div>
             <DialogTitle className="text-2xl font-bold text-green-600">
-              Subscription Successful!
+              {t('form.success.title')}
             </DialogTitle>
             <DialogDescription className="text-center space-y-2">
-              <span className="block">Thank you for subscribing to <strong>{packageName}</strong>!</span>
+              <span className="block">{t('form.success.message')} <strong>{packageName}</strong>!</span>
               <span className="block text-sm text-gray-600">
-                We&apos;ll contact you soon with next steps. Please keep your phone available.
+                {t('form.success.note')}
               </span>
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-center pt-4">
             <Button onClick={handleClose} className="bg-gradient-to-r from-blue-600 to-purple-600">
-              Close
+              {t('form.success.close')}
             </Button>
           </div>
         </DialogContent>
@@ -152,10 +194,10 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
       <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold">
-            Subscribe to {packageName}
+            {t('form.title')} {packageName}
           </DialogTitle>
           <DialogDescription>
-            Please fill in your information to complete your subscription. All fields are required.
+            {t('form.description')}
           </DialogDescription>
         </DialogHeader>
 
@@ -168,11 +210,11 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
           )}
 
           <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name</Label>
+            <Label htmlFor="fullName">{t('form.full-name')}</Label>
             <Input
               id="fullName"
               type="text"
-              placeholder="Enter your full name"
+              placeholder={t('form.full-name-placeholder')}
               value={formData.fullName}
               onChange={(e) => handleInputChange('fullName', e.target.value)}
               required
@@ -180,11 +222,11 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email">{t('form.email')}</Label>
             <Input
               id="email"
               type="email"
-              placeholder="Enter your email address"
+              placeholder={t('form.email-placeholder')}
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               required
@@ -192,37 +234,55 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number</Label>
-            <Input
-              id="phone"
-              type="tel"
-              placeholder="05XXXXXXXX or +966XXXXXXXXX"
-              value={formData.phone}
-              onChange={(e) => handleInputChange('phone', e.target.value)}
-              required
-            />
+            <Label htmlFor="phone">{t('form.phone')}</Label>
+            <div className="flex gap-2">
+              <Select value={formData.countryCode} onValueChange={(value) => handleInputChange('countryCode', value)}>
+                <SelectTrigger className="w-32">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {countryCodes.map((country) => (
+                    <SelectItem key={country.code} value={country.code}>
+                      <div className="flex items-center gap-2">
+                        <span>{country.flag}</span>
+                        <span>{country.code}</span>
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Input
+                id="phone"
+                type="tel"
+                placeholder={t('form.phone-placeholder')}
+                value={formData.phone}
+                onChange={(e) => handleInputChange('phone', e.target.value)}
+                required
+                className="flex-1"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="gender">Gender</Label>
+              <Label htmlFor="gender">{t('form.gender')}</Label>
               <Select value={formData.gender} onValueChange={(value) => handleInputChange('gender', value)}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select gender" />
+                  <SelectValue placeholder={t('form.gender-placeholder')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="female">Female</SelectItem>
+                  <SelectItem value="male">{t('form.gender-male')}</SelectItem>
+                  <SelectItem value="female">{t('form.gender-female')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="age">Age</Label>
+              <Label htmlFor="age">{t('form.age')}</Label>
               <Input
                 id="age"
                 type="number"
-                placeholder="Enter your age"
+                placeholder={t('form.age-placeholder')}
                 value={formData.age}
                 onChange={(e) => handleInputChange('age', e.target.value)}
                 min="16"
@@ -233,25 +293,31 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="id">National ID / Iqama Number</Label>
+            <Label htmlFor="id">{t('form.id')}</Label>
             <Input
               id="id"
               type="text"
-              placeholder="Enter your ID number"
+              placeholder={t('form.id-placeholder')}
               value={formData.id}
-              onChange={(e) => handleInputChange('id', e.target.value)}
+              onChange={(e) => handleIdChange(e.target.value)}
               required
+              maxLength={10}
+              pattern="[0-9]{10}"
+              inputMode="numeric"
             />
+            <p className="text-sm text-gray-500">
+              {formData.id.length}/10 {isRTL ? 'أرقام' : 'digits'}
+            </p>
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4">
+          <div className={`flex justify-end space-x-3 pt-4 ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
             <Button
               type="button"
               variant="outline"
               onClick={handleClose}
               disabled={isSubmitting}
             >
-              Cancel
+              {t('form.cancel')}
             </Button>
             <Button
               type="submit"
@@ -261,10 +327,10 @@ export function SubscriptionForm({ isOpen, onClose, packageType, packageName }: 
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Submitting...
+                  {t('form.submitting')}
                 </>
               ) : (
-                'Subscribe Now'
+                t('form.submit')
               )}
             </Button>
           </div>
