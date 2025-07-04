@@ -1,3 +1,5 @@
+'use client'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { 
@@ -9,49 +11,51 @@ import {
   FileText, 
   Users 
 } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function HowItWorksSection() {
+  const { t, isRTL } = useLanguage()
   const steps = [
     {
       icon: ShoppingCart,
-      title: "Get the Test",
-      description: "Available through partnered outlets or certified points of sale",
+      title: t('how-it-works.step1'),
+      description: t('how-it-works.step1-desc'),
       color: "bg-blue-100 text-blue-600"
     },
     {
       icon: Package,
-      title: "Test Kit Contents",
-      description: "Tube and swab with clear instructions and easy sampling steps",
+      title: t('how-it-works.step2'),
+      description: t('how-it-works.step2-desc'),
       color: "bg-purple-100 text-purple-600"
     },
     {
       icon: Home,
-      title: "Self-Testing",
-      description: "Can be done anywhere (home, clinic, gym, or pharmacies)",
+      title: t('how-it-works.step3'),
+      description: t('how-it-works.step3-desc'),
       color: "bg-green-100 text-green-600"
     },
     {
       icon: Send,
-      title: "Send the Sample",
-      description: "Via collection points or delivery representative",
+      title: t('how-it-works.step4'),
+      description: t('how-it-works.step4-desc'),
       color: "bg-orange-100 text-orange-600"
     },
     {
       icon: FlaskConical,
-      title: "Sample Analysis",
-      description: "Conducted in the lab, potentially using AI technologies",
+      title: t('how-it-works.step5'),
+      description: t('how-it-works.step5-desc'),
       color: "bg-pink-100 text-pink-600"
     },
     {
       icon: FileText,
-      title: "Receive Results",
-      description: "Through a dedicated platform or a detailed manual report",
+      title: t('how-it-works.step6'),
+      description: t('how-it-works.step6-desc'),
       color: "bg-cyan-100 text-cyan-600"
     },
     {
       icon: Users,
-      title: "Consultations",
-      description: "Genetic, athletic, and nutritional consultations via packages with regular notifications",
+      title: t('how-it-works.step7'),
+      description: t('how-it-works.step7-desc'),
       color: "bg-indigo-100 text-indigo-600"
     }
   ]
@@ -64,7 +68,7 @@ export function HowItWorksSection() {
             Simple Process
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            How the <span className="text-gradient">Test Works</span>
+            <span className="text-gradient">{t('how-it-works.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             From getting your test kit to receiving personalized consultations - 

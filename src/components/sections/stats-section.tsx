@@ -1,7 +1,11 @@
+'use client'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { TrendingUp, Clock, Activity, AlertTriangle } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function StatsSection() {
+  const { t, isRTL } = useLanguage()
   return (
     <section className="section-padding bg-white">
       <div className="container-max">
@@ -23,7 +27,7 @@ export function StatsSection() {
               <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Performance Improvement</h3>
               <p className="text-gray-600 text-sm">
-                Athletes using genomic technology saw performance improvement within a few months
+                {t('stats.stat1')}
               </p>
             </CardContent>
           </Card>
@@ -36,7 +40,7 @@ export function StatsSection() {
               <div className="text-4xl font-bold text-blue-600 mb-2">1x</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">One Test, All Needs</h3>
               <p className="text-gray-600 text-sm">
-                Save time and effort with one comprehensive test for all your athletic needs
+                {t('stats.stat2')}
               </p>
             </CardContent>
           </Card>
@@ -49,7 +53,7 @@ export function StatsSection() {
               <div className="text-4xl font-bold text-purple-600 mb-2">100%</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Health Foundation</h3>
               <p className="text-gray-600 text-sm">
-                Your physical health starts with comprehensive genetic analysis
+                {t('stats.stat3')}
               </p>
             </CardContent>
           </Card>
@@ -62,7 +66,7 @@ export function StatsSection() {
               <div className="text-4xl font-bold text-orange-600 mb-2">⚠️</div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Risk Awareness</h3>
               <p className="text-gray-600 text-sm">
-                DNA variations may increase risk of certain diseases or impact athletic performance
+                {t('stats.stat4')}
               </p>
             </CardContent>
           </Card>

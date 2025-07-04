@@ -6,8 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CheckCircle, Dumbbell, Apple, Crown, ArrowRight } from 'lucide-react'
 import { SubscriptionForm } from '@/components/forms/subscription-form'
+import { useLanguage } from '@/contexts/language-context'
 
 export function PackagesSection() {
+  const { t, isRTL } = useLanguage()
   const [selectedPackage, setSelectedPackage] = useState<{id: string, name: string} | null>(null)
   const [isFormOpen, setIsFormOpen] = useState(false)
 
@@ -23,10 +25,10 @@ export function PackagesSection() {
   const packages = [
     {
       id: 'fitness',
-      name: 'GENO FITNESS',
+      name: t('packages.fitness-name'),
       icon: Dumbbell,
-      description: 'Comprehensive genetic analysis with personalized training plans based on your DNA',
-      price: 'Starting at',
+      description: t('packages.fitness-desc'),
+      price: t('packages.starting-at'),
       amount: '2199 SAR',
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-50 to-cyan-50',
@@ -42,10 +44,10 @@ export function PackagesSection() {
     },
     {
       id: 'diet',
-      name: 'GENO DIET',
+      name: t('packages.diet-name'),
       icon: Apple,
-      description: 'Personalized dietary plans tailored to your genetics to help you reach your nutrition goals',
-      price: 'Starting at',
+      description: t('packages.diet-desc'),
+      price: t('packages.starting-at'),
       amount: '2199 SAR',
       gradient: 'from-green-500 to-emerald-500',
       bgGradient: 'from-green-50 to-emerald-50',
@@ -61,10 +63,10 @@ export function PackagesSection() {
     },
     {
       id: 'premium',
-      name: 'GENO PREMIUM',
+      name: t('packages.premium-name'),
       icon: Crown,
-      description: 'The all-inclusive package for full analysis and tailored athletic and dietary plans',
-      price: 'Starting at',
+      description: t('packages.premium-desc'),
+      price: t('packages.starting-at'),
       amount: '3299 SAR',
       gradient: 'from-purple-500 to-pink-500',
       bgGradient: 'from-purple-50 to-pink-50',
@@ -90,11 +92,10 @@ export function PackagesSection() {
             Choose Your Plan
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our <span className="text-gradient">Packages</span>
+            <span className="text-gradient">{t('packages.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Your athletic and health performance begins with a deeper understanding of your DNA. 
-            Choose the package that best fits your goals.
+            {t('packages.subtitle')}
           </p>
         </div>
 
@@ -145,8 +146,8 @@ export function PackagesSection() {
                   className={`w-full bg-gradient-to-r ${pkg.gradient} hover:opacity-90 transition-opacity`}
                   onClick={() => handleSubscribeClick(pkg.id, pkg.name)}
                 >
-                  Subscribe Now
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  {t('packages.subscribe')}
+                  <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'}`} />
                 </Button>
               </CardContent>
             </Card>

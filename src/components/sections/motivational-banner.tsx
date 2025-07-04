@@ -1,7 +1,11 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { Shield, Heart, Target } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function MotivationalBanner() {
+  const { t, isRTL } = useLanguage()
   return (
     <section className="section-padding bg-gradient-to-r from-blue-600 to-purple-600 text-white">
       <div className="container-max">
@@ -15,21 +19,22 @@ export function MotivationalBanner() {
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
-            Your genetic information empowers you to make precise health decisions
+            {t('motivational.title')}
           </h2>
           
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
-            Enhancing your quality of life and helping you reach your goals effortlessly. 
-            After all, an ounce of prevention is worth a pound of cure.
+            {t('motivational.subtitle')}
           </p>
           
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-6 text-lg font-semibold"
-          >
-            Discover the Benefits of Genetic Testing
-          </Button>
+          <a href="#packages">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-6 text-lg font-semibold"
+            >
+              {t('motivational.cta')}
+            </Button>
+          </a>
         </div>
       </div>
     </section>

@@ -1,7 +1,11 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function FinalCTASection() {
+  const { t, isRTL } = useLanguage()
   return (
     <section className="section-padding bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white relative overflow-hidden">
       {/* Background effects */}
@@ -20,14 +24,11 @@ export function FinalCTASection() {
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Ready to discover your{' '}
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              full potential?
-            </span>
+            {t('final-cta.title')}
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-            Don&apos;t let your genetic potential go untapped. Join thousands of athletes who&apos;ve already transformed their performance with GenoFit.
+            {t('final-cta.subtitle')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -36,8 +37,8 @@ export function FinalCTASection() {
                 size="lg" 
                 className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-12 py-6 text-xl font-bold shadow-2xl hover:shadow-yellow-500/25 transition-all duration-300"
               >
-                Start Your Journey Now
-                <ArrowRight className="ml-3 w-6 h-6" />
+                {t('final-cta.cta')}
+                <ArrowRight className={`w-6 h-6 ${isRTL ? 'mr-3 rotate-180' : 'ml-3'}`} />
               </Button>
             </a>
           </div>

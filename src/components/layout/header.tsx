@@ -4,9 +4,12 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
+import { useLanguage } from '@/contexts/language-context'
+import { LanguageSwitcher } from '@/components/ui/language-switcher'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { t, isRTL } = useLanguage()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -28,29 +31,30 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-8' : 'space-x-8'}`}>
             <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Home
+              {t('nav.home')}
             </a>
             <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors">
-              How it works
+              {t('nav.how-it-works')}
             </a>
             <a href="#packages" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Packages
+              {t('nav.packages')}
             </a>
             <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">
-              About
+              {t('nav.about')}
             </a>
             <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">
-              Contact
+              {t('nav.contact')}
             </a>
           </nav>
 
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
+          {/* Desktop Actions */}
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
+            <LanguageSwitcher />
             <a href="#packages">
               <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
-                Get Started
+                {t('nav.get-started')}
               </Button>
             </a>
           </div>
@@ -73,47 +77,50 @@ export function Header() {
                 className="text-gray-700 hover:text-blue-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                {t('nav.home')}
               </a>
               <a 
                 href="#how-it-works" 
                 className="text-gray-700 hover:text-blue-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                How it works
+                {t('nav.how-it-works')}
               </a>
               <a 
                 href="#packages" 
                 className="text-gray-700 hover:text-blue-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Packages
+                {t('nav.packages')}
               </a>
               <a 
                 href="#about" 
                 className="text-gray-700 hover:text-blue-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                {t('nav.about')}
               </a>
               <a 
                 href="#contact" 
                 className="text-gray-700 hover:text-blue-600 transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                {t('nav.contact')}
               </a>
-              <a 
-                href="#packages"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 mt-4 w-full"
+              <div className="pt-4 space-y-3">
+                <LanguageSwitcher />
+                <a 
+                  href="#packages"
+                  onClick={() => setIsMenuOpen(false)}
                 >
-                  Get Started
-                </Button>
-              </a>
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 w-full"
+                  >
+                    {t('nav.get-started')}
+                  </Button>
+                </a>
+              </div>
             </nav>
           </div>
         )}

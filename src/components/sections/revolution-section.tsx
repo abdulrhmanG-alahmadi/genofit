@@ -1,31 +1,35 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Zap, Dna, Shield, Target, TrendingUp } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function RevolutionSection() {
+  const { t, isRTL } = useLanguage()
   const benefits = [
     {
       icon: Dna,
-      title: "Uncover Your Physical Capabilities",
-      description: "Discover your unique genetic potential based on your DNA profile",
+      title: t('revolution.benefit1'),
+      description: t('revolution.benefit1-desc'),
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Target,
-      title: "Customize Training & Nutrition",
-      description: "Get personalized plans designed specifically for your body's needs",
+      title: t('revolution.benefit2'),
+      description: t('revolution.benefit2-desc'),
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Shield,
-      title: "Prevent Injuries & Diseases",
-      description: "Accurate gene-based insights to prevent chronic conditions",
+      title: t('revolution.benefit3'),
+      description: t('revolution.benefit3-desc'),
       color: "from-green-500 to-emerald-500"
     },
     {
       icon: TrendingUp,
-      title: "Achieve Goals Efficiently",
-      description: "Reach your athletic goals faster with data-driven strategies",
+      title: t('revolution.benefit4'),
+      description: t('revolution.benefit4-desc'),
       color: "from-orange-500 to-red-500"
     }
   ]

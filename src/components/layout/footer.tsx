@@ -1,8 +1,12 @@
+'use client'
+
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
+import { useLanguage } from '@/contexts/language-context'
 
 export function Footer() {
+  const { t, isRTL } = useLanguage()
   return (
     <footer id="contact" className="bg-gray-900 text-white">
       <div className="container-max section-padding">
