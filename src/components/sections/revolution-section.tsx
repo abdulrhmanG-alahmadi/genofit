@@ -47,8 +47,7 @@ export function RevolutionSection() {
             Not Just a Step — A <span className="text-gradient">Genetic Revolution</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Genetic testing isn&apos;t just an extra step — it&apos;s a revolution in boosting your athletic 
-            performance and overall health. With GenoFit, we help you unlock your true potential.
+            {t('revolution.subtitle-text')}
           </p>
         </div>
 
@@ -79,18 +78,16 @@ export function RevolutionSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                Whether you're a professional athlete or passionate about healthy living
+                {t('revolution.whether-text')}
               </h3>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Your genes are the key to your health future. GenoFit empowers both elite athletes 
-                striving for peak performance and individuals passionate about living a healthy, 
-                balanced life. It&apos;s time to revolutionize your approach to fitness and nutrition.
+                {t('revolution.genes-future')}
               </p>
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
               >
-                Discover How Your Genes Can Make the Difference!
+                {t('revolution.cta')}
               </Button>
             </div>
             <div className="space-y-6">
@@ -99,8 +96,8 @@ export function RevolutionSection() {
                   <Target className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Professional Athletes</h4>
-                  <p className="text-gray-600 text-sm">Optimize performance with precision genetics</p>
+                  <h4 className="font-semibold text-gray-900">{t('revolution.professional-athlete')}</h4>
+                  <p className="text-gray-600 text-sm">{t('revolution.professional-athlete-desc')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md">
@@ -108,8 +105,8 @@ export function RevolutionSection() {
                   <Shield className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Fitness Enthusiasts</h4>
-                  <p className="text-gray-600 text-sm">Achieve your health goals more effectively</p>
+                  <h4 className="font-semibold text-gray-900">{t('revolution.fitness-enthusiasts')}</h4>
+                  <p className="text-gray-600 text-sm">{t('revolution.fitness-enthusiasts-desc')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-md">
@@ -117,8 +114,8 @@ export function RevolutionSection() {
                   <TrendingUp className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Health-Conscious Individuals</h4>
-                  <p className="text-gray-600 text-sm">Make informed decisions about your wellness</p>
+                  <h4 className="font-semibold text-gray-900">{t('revolution.health-conscious')}</h4>
+                  <p className="text-gray-600 text-sm">{t('revolution.health-conscious-desc')}</p>
                 </div>
               </div>
             </div>

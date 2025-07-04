@@ -11,10 +11,10 @@ export function StatsSection() {
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            The Power of <span className="text-gradient">Genetic Testing</span>
+            <span className="text-gradient">{t('stats.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how genetic testing transforms athletic performance and health outcomes
+            {t('stats.subtitle')}
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export function StatsSection() {
                 <TrendingUp className="w-8 h-8 text-green-600" />
               </div>
               <div className="text-4xl font-bold text-green-600 mb-2">95%</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Performance Improvement</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('stats.performance')}</h3>
               <p className="text-gray-600 text-sm">
                 {t('stats.stat1')}
               </p>
@@ -38,7 +38,7 @@ export function StatsSection() {
                 <Clock className="w-8 h-8 text-blue-600" />
               </div>
               <div className="text-4xl font-bold text-blue-600 mb-2">1x</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">One Test, All Needs</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('stats.one-test')}</h3>
               <p className="text-gray-600 text-sm">
                 {t('stats.stat2')}
               </p>
@@ -51,7 +51,7 @@ export function StatsSection() {
                 <Activity className="w-8 h-8 text-purple-600" />
               </div>
               <div className="text-4xl font-bold text-purple-600 mb-2">100%</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Health Foundation</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('stats.health-foundation')}</h3>
               <p className="text-gray-600 text-sm">
                 {t('stats.stat3')}
               </p>
@@ -64,7 +64,7 @@ export function StatsSection() {
                 <AlertTriangle className="w-8 h-8 text-orange-600" />
               </div>
               <div className="text-4xl font-bold text-orange-600 mb-2">⚠️</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Risk Awareness</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{t('stats.risk-awareness')}</h3>
               <p className="text-gray-600 text-sm">
                 {t('stats.stat4')}
               </p>
@@ -75,7 +75,7 @@ export function StatsSection() {
         {/* Additional motivational content */}
         <div className="mt-16 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 text-center">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Why Genetic Testing Matters
+            {t('stats.why-matters')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="flex items-start space-x-4">
@@ -83,9 +83,9 @@ export function StatsSection() {
                 <span className="text-blue-600 font-bold">1</span>
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-gray-900 mb-2">Precision Medicine</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('stats.precision-medicine')}</h4>
                 <p className="text-gray-600">
-                  Understand your unique genetic makeup to make informed health decisions
+                  {t('stats.precision-desc')}
                 </p>
               </div>
             </div>
@@ -94,9 +94,9 @@ export function StatsSection() {
                 <span className="text-purple-600 font-bold">2</span>
               </div>
               <div className="text-left">
-                <h4 className="font-semibold text-gray-900 mb-2">Performance Optimization</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">{t('stats.performance-optimization')}</h4>
                 <p className="text-gray-600">
-                  Unlock your athletic potential with personalized training strategies
+                  {t('stats.performance-desc')}
                 </p>
               </div>
             </div>

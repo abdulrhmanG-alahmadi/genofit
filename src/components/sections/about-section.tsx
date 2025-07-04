@@ -28,8 +28,8 @@ export function AboutSection() {
             <div className={`flex items-center p-4 bg-blue-50 rounded-lg ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
               <Calendar className="w-8 h-8 text-blue-600" />
               <div>
-                <p className="font-semibold text-gray-900">Founded in December 2023</p>
-                <p className="text-gray-600">Leading the genetic revolution in sports</p>
+                <p className="font-semibold text-gray-900">{t('common.founded')}</p>
+                <p className="text-gray-600">{t('common.genetic-revolution')}</p>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ export function AboutSection() {
                       {t('about.feature1')}
                     </h4>
                     <p className="text-gray-600">
-                      Cutting-edge technology to decode your genetic potential and optimize your performance
+                      {t('common.cutting-edge')}
                     </p>
                   </div>
                 </div>
@@ -65,7 +65,7 @@ export function AboutSection() {
                       {t('about.feature2')}
                     </h4>
                     <p className="text-gray-600">
-                      Custom training and nutrition plans designed specifically for your genetic profile
+                      {t('common.custom-plans')}
                     </p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export function AboutSection() {
                       {t('about.feature3')}
                     </h4>
                     <p className="text-gray-600">
-                      All tailored to help you reach your fitness goals with professional guidance
+                      {t('common.professional-guidance')}
                     </p>
                   </div>
                 </div>
@@ -103,21 +103,21 @@ export function AboutSection() {
                 <Dna className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">{t('about.feature1')}</h4>
-              <p className="text-gray-600">State-of-the-art genetic testing technology</p>
+              <p className="text-gray-600">{t('common.state-of-art')}</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">{t('about.feature2')}</h4>
-              <p className="text-gray-600">Customized training and nutrition strategies</p>
+              <p className="text-gray-600">{t('common.customized-strategies')}</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">{t('about.feature3')}</h4>
-              <p className="text-gray-600">Professional support throughout your journey</p>
+              <p className="text-gray-600">{t('common.professional-support')}</p>
             </div>
           </div>
           <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">

@@ -89,7 +89,7 @@ export function PackagesSection() {
       <div className="container-max">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
-            Choose Your Plan
+            {t('packages.badge')}
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             <span className="text-gradient">{t('packages.title')}</span>
@@ -109,7 +109,7 @@ export function PackagesSection() {
             >
               {pkg.popular && (
                 <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2 text-sm font-semibold">
-                  Most Popular
+                  {t('packages.most-popular')}
                 </div>
               )}
               
@@ -158,10 +158,10 @@ export function PackagesSection() {
         <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              All Packages Include
+              {t('packages.all-include-title')}
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Every GenoFit package comes with our commitment to your success and comprehensive support
+              {t('packages.all-include-subtitle')}
             </p>
           </div>
           
@@ -170,29 +170,29 @@ export function PackagesSection() {
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-blue-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Lab Analysis</h4>
-              <p className="text-sm text-gray-600">Professional genetic testing</p>
+              <h4 className="font-semibold text-gray-900 mb-1">{t('packages.lab-analysis')}</h4>
+              <p className="text-sm text-gray-600">{t('packages.lab-analysis-desc')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Detailed Report</h4>
-              <p className="text-sm text-gray-600">Comprehensive results</p>
+              <h4 className="font-semibold text-gray-900 mb-1">{t('packages.detailed-report')}</h4>
+              <p className="text-sm text-gray-600">{t('packages.detailed-report-desc')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-purple-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Expert Support</h4>
-              <p className="text-sm text-gray-600">Professional guidance</p>
+              <h4 className="font-semibold text-gray-900 mb-1">{t('packages.expert-support')}</h4>
+              <p className="text-sm text-gray-600">{t('packages.expert-support-desc')}</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
                 <CheckCircle className="w-6 h-6 text-orange-600" />
               </div>
-              <h4 className="font-semibold text-gray-900 mb-1">Secure Platform</h4>
-              <p className="text-sm text-gray-600">Protected data access</p>
+              <h4 className="font-semibold text-gray-900 mb-1">{t('packages.secure-platform')}</h4>
+              <p className="text-sm text-gray-600">{t('packages.secure-platform-desc')}</p>
             </div>
           </div>
         </div>

@@ -47,18 +47,18 @@ export function FinalCTASection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/20">
             <div className="text-center">
               <div className="text-3xl font-bold text-yellow-400 mb-2">🇸🇦</div>
-              <div className="text-lg font-semibold text-white mb-1">Saudi Innovation</div>
-              <div className="text-gray-300">First in the Kingdom</div>
+              <div className="text-lg font-semibold text-white mb-1">{t('final-cta.saudi-innovation')}</div>
+              <div className="text-gray-300">{t('final-cta.first-kingdom')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-green-400 mb-2">🔬</div>
-              <div className="text-lg font-semibold text-white mb-1">Advanced Science</div>
-              <div className="text-gray-300">Cutting-edge technology</div>
+              <div className="text-lg font-semibold text-white mb-1">{t('final-cta.advanced-science')}</div>
+              <div className="text-gray-300">{t('final-cta.cutting-edge-tech')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-blue-400 mb-2">🏆</div>
-              <div className="text-lg font-semibold text-white mb-1">Proven Results</div>
-              <div className="text-gray-300">95% success rate</div>
+              <div className="text-lg font-semibold text-white mb-1">{t('final-cta.proven-results')}</div>
+              <div className="text-gray-300">{t('final-cta.success-rate')}</div>
             </div>
           </div>
         </div>

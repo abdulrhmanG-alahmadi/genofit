@@ -24,8 +24,7 @@ export function Footer() {
               <span className="text-2xl font-bold text-gradient">GenoFit</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              The first Saudi company specializing in genetic testing for athletes. 
-              Elevate your athletic potential with precision genetics.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
@@ -48,31 +47,31 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.quick-links')}</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-white transition-colors">
-                  Home
+                  {t('footer.home')}
                 </a>
               </li>
               <li>
                 <a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">
-                  How it works
+                  {t('nav.how-it-works')}
                 </a>
               </li>
               <li>
                 <a href="#packages" className="text-gray-400 hover:text-white transition-colors">
-                  Packages
+                  {t('footer.packages')}
                 </a>
               </li>
               <li>
                 <a href="#about" className="text-gray-400 hover:text-white transition-colors">
-                  About
+                  {t('nav.about')}
                 </a>
               </li>
               <li>
                 <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
-                  Contact
+                  {t('nav.contact')}
                 </a>
               </li>
             </ul>
@@ -80,26 +79,26 @@ export function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.legal')}</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
+                <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                  {t('footer.privacy-policy')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Terms & Conditions
+                <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                  {t('footer.terms')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Return & Refund Policy
+                <a href="/returns" className="text-gray-400 hover:text-white transition-colors">
+                  {t('footer.return-policy')}
                 </a>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Cookie Policy
+                <a href="/support" className="text-gray-400 hover:text-white transition-colors">
+                  {t('footer.support-policy')}
                 </a>
               </li>
             </ul>
@@ -107,7 +106,7 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contact-info')}</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
@@ -138,13 +137,13 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 GenoFit. All rights reserved. Founded in December 2023.
+            {t('footer.copyright')} {t('common.founded')}.
           </p>
           <div className="flex items-center space-x-4 mt-4 md:mt-0">
-            <span className="text-gray-400 text-sm">Follow us:</span>
+            <span className="text-gray-400 text-sm">{t('footer.follow-us')}</span>
             <div className="flex space-x-2">
               <span className="text-2xl">🇸🇦</span>
-              <span className="text-gray-400 text-sm">Made in Saudi Arabia</span>
+              <span className="text-gray-400 text-sm">{t('footer.made-in-saudi')}</span>
             </div>
           </div>
         </div>

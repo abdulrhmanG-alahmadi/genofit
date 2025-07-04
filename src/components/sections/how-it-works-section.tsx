@@ -65,14 +65,13 @@ export function HowItWorksSection() {
       <div className="container-max">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
-            Simple Process
+            {t('how-it-works.badge')}
           </Badge>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             <span className="text-gradient">{t('how-it-works.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From getting your test kit to receiving personalized consultations - 
-            we&apos;ve made the process simple and convenient
+            {t('how-it-works.subtitle')}
           </p>
         </div>
 
@@ -108,32 +107,32 @@ export function HowItWorksSection() {
         {/* Process Flow Visualization */}
         <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
-            Your Journey to Genetic Insights
+            {t('how-it-works.journey-title')}
           </h3>
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-              <span className="text-gray-600">Purchase Test</span>
+              <span className="text-gray-600">{t('how-it-works.purchase')}</span>
             </div>
             <div className="hidden md:block w-8 h-px bg-gray-300"></div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-              <span className="text-gray-600">Take Sample</span>
+              <span className="text-gray-600">{t('how-it-works.take-sample')}</span>
             </div>
             <div className="hidden md:block w-8 h-px bg-gray-300"></div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-gray-600">Lab Analysis</span>
+              <span className="text-gray-600">{t('how-it-works.lab-analysis')}</span>
             </div>
             <div className="hidden md:block w-8 h-px bg-gray-300"></div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-              <span className="text-gray-600">Get Results</span>
+              <span className="text-gray-600">{t('how-it-works.get-results')}</span>
             </div>
             <div className="hidden md:block w-8 h-px bg-gray-300"></div>
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-pink-500 rounded-full"></div>
-              <span className="text-gray-600">Consultation</span>
+              <span className="text-gray-600">{t('how-it-works.consultation')}</span>
             </div>
           </div>
         </div>

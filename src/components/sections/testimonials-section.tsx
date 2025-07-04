@@ -1,54 +1,59 @@
+'use client'
+
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Star, Quote } from 'lucide-react'
+import { useLanguage } from '@/contexts/language-context'
 
 export function TestimonialsSection() {
+  const { t, isRTL } = useLanguage()
+  
   const testimonials = [
     {
       id: 1,
-      name: "Ahmed Al-Rashid",
-      role: "Professional Football Player",
-      content: "GenoFit completely transformed my training approach. The genetic insights helped me understand my body&apos;s unique needs and optimize my performance like never before. I&apos;ve seen incredible improvements in my endurance and recovery time.",
+      nameKey: "testimonials.ahmed.name",
+      roleKey: "testimonials.ahmed.role",
+      contentKey: "testimonials.ahmed.content",
       rating: 5,
       avatar: "AR"
     },
     {
       id: 2,
-      name: "Sarah Al-Zahra",
-      role: "Fitness Trainer",
-      content: "&quot;As a trainer, I&apos;ve seen how GenoFit helps my clients achieve better results. The personalized nutrition and training plans based on genetic data are game-changers. My clients love the scientific approach.&quot;",
+      nameKey: "testimonials.sarah.name",
+      roleKey: "testimonials.sarah.role",
+      contentKey: "testimonials.sarah.content",
       rating: 5,
       avatar: "SZ"
     },
     {
       id: 3,
-      name: "Omar Al-Zahra",
-      role: "Marathon Runner",
-      content: "As a competitive runner, I was skeptical about genetic testing. But GenoFit's analysis revealed my optimal training zones and recovery needs. My marathon time improved by 12 minutes!",
+      nameKey: "testimonials.omar.name",
+      roleKey: "testimonials.omar.role",
+      contentKey: "testimonials.omar.content",
       rating: 5,
       avatar: "OZ"
     },
     {
       id: 4,
-      name: "Fatima Al-Nasser",
-      role: "Gym Owner",
-      content: "I recommend GenoFit to all my clients. The personalized training programs based on genetic analysis have shown remarkable results. It's the future of fitness coaching.",
+      nameKey: "testimonials.fatima.name",
+      roleKey: "testimonials.fatima.role",
+      contentKey: "testimonials.fatima.content",
       rating: 5,
       avatar: "FN"
     },
     {
       id: 5,
-      name: "Khalid Al-Dosari",
-      role: "Weightlifter",
-      content: "Understanding my muscle fiber composition through GenoFit helped me tailor my strength training. I've achieved personal records I never thought possible.",
+      nameKey: "testimonials.khalid.name",
+      roleKey: "testimonials.khalid.role",
+      contentKey: "testimonials.khalid.content",
       rating: 5,
       avatar: "KD"
     },
     {
       id: 6,
-      name: "Noura Al-Harbi",
-      role: "Nutritionist",
-      content: "As a professional nutritionist, I find GenoFit's genetic nutrition analysis incredibly valuable. It adds a scientific foundation to my dietary recommendations.",
+      nameKey: "testimonials.noura.name",
+      roleKey: "testimonials.noura.role",
+      contentKey: "testimonials.noura.content",
       rating: 5,
       avatar: "NH"
     }
@@ -68,10 +73,10 @@ export function TestimonialsSection() {
       <div className="container-max">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            What Our <span className="text-gradient">Customers Say</span>
+            <span className="text-gradient">{t('testimonials.title')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Join thousands of satisfied customers who have transformed their athletic performance with GenoFit
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -88,18 +93,18 @@ export function TestimonialsSection() {
                 </div>
                 
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  "{testimonial.content}"
+                  "{t(testimonial.contentKey)}"
                 </p>
                 
-                <div className="flex items-center">
-                  <Avatar className="w-12 h-12 mr-4">
+                <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
+                  <Avatar className="w-12 h-12">
                     <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold">
                       {testimonial.avatar}
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <h4 className="font-semibold text-gray-900">{t(testimonial.nameKey)}</h4>
+                    <p className="text-sm text-gray-500">{t(testimonial.roleKey)}</p>
                   </div>
                 </div>
               </CardContent>
@@ -112,19 +117,19 @@ export function TestimonialsSection() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
-              <div className="text-gray-600">Happy Customers</div>
+              <div className="text-gray-600">{t('testimonials.stats.happy-customers')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-purple-600 mb-2">95%</div>
-              <div className="text-gray-600">Success Rate</div>
+              <div className="text-gray-600">{t('testimonials.stats.success-rate')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-green-600 mb-2">4.9/5</div>
-              <div className="text-gray-600">Average Rating</div>
+              <div className="text-gray-600">{t('testimonials.stats.average-rating')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-orange-600 mb-2">24/7</div>
-              <div className="text-gray-600">Support Available</div>
+              <div className="text-gray-600">{t('testimonials.stats.support-available')}</div>
             </div>
           </div>
         </div>
