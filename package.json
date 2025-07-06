@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:static": "next build",
-    "preview:local": "npm run build:static && npx serve out",
-    "deploy:pages": "npm run build:static && wrangler pages deploy out --project-name genofit",
+    "build:worker": "next build",
+    "preview:worker": "npm run build:worker && wrangler dev",
+    "deploy:worker": "npm run build:worker && wrangler deploy",
     "start": "next start",
     "lint": "next lint"
   },

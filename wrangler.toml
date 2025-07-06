@@ -2,5 +2,10 @@ name = "genofit"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 
-# This configuration is for Cloudflare Pages
-# The actual deployment will be handled by the pages deploy command
+# Manual worker configuration
+main = "_worker.js"
+
+# Static assets configuration
+[assets]
+directory = "out"
+binding = "ASSETS"
