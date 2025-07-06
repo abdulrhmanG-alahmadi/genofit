@@ -5,12 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "next build && next-on-pages",
-    "deploy:cf": "npm run build:cf && wrangler pages deploy .vercel/output/static --project-name genofit",
-    "build:worker": "next build && npx @cloudflare/next-on-pages@1",
-    "deploy:worker": "npm run build:worker && wrangler deploy",
-    "deploy": "wrangler deploy .vercel/output/static",
-    "deploy:pages": "wrangler pages deploy .next --project-name genofit",
+    "build:static": "next build",
+    "preview:local": "npm run build:static && npx serve out",
+    "deploy:pages": "npm run build:static && wrangler pages deploy out --project-name genofit",
     "start": "next start",
     "lint": "next lint"
   },
@@ -36,6 +33,7 @@
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.12",
     "@eslint/eslintrc": "^3",
+    "@opennextjs/cloudflare": "^1.4.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
